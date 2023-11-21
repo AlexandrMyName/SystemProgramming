@@ -35,8 +35,8 @@ namespace TestJobSystem.one
             _intArray.Dispose();
             Debug.LogWarning("_______________");
         }
-         
 
+        
         private void DebugResultToConsole()
         {
             int countSlicable = 0;
