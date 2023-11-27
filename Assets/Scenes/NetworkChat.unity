@@ -921,7 +921,6 @@ GameObject:
   - component: {fileID: 493836395}
   - component: {fileID: 493836397}
   - component: {fileID: 493836396}
-  - component: {fileID: 493836398}
   m_Layer: 5
   m_Name: LoginUI
   m_TagString: Untagged
@@ -991,20 +990,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493836394}
   m_CullTransparentMesh: 1
---- !u!114 &493836398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 493836394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbccdf343458aa043afb6c4b7d23aeeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hostButton: {fileID: 266740356}
-  _clientButton: {fileID: 264233424}
 --- !u!1 &571708665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,8 +1749,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1885434805}
-        m_TargetAssemblyTypeName: ChatSystem.ChatNetworkManager, Assembly-CSharp
-        m_MethodName: OnNetworkAddressChanged
+        m_TargetAssemblyTypeName: NETWORKING.Manager.NET_MANAGER, Assembly-CSharp
+        m_MethodName: OnAddressChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1916,8 +1901,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1382154670}
-        m_TargetAssemblyTypeName: ChatSystem.ChatUI, Assembly-CSharp
-        m_MethodName: Send
+        m_TargetAssemblyTypeName: NET_CHAT, Assembly-CSharp
+        m_MethodName: SendChatMessage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2071,17 +2056,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3478358817381102478, guid: 655e5c29d4dfdbd469b9ca1e566fd865, type: 3}
   m_PrefabInstance: {fileID: 827672420}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &827672422 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1477087021640264253, guid: 655e5c29d4dfdbd469b9ca1e566fd865, type: 3}
-  m_PrefabInstance: {fileID: 827672420}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &877667297
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,6 +2183,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877667297}
   m_CullTransparentMesh: 1
+--- !u!114 &998979283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1477087021640264253, guid: 655e5c29d4dfdbd469b9ca1e566fd865, type: 3}
+  m_PrefabInstance: {fileID: 827672420}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1097689755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3010,16 +2995,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1382154666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa09ccb6b2c12f4418a5ee46838ce3d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6276d6e82ca71af4ea000d575e4b3aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
-  _text: {fileID: 827672422}
-  _sendButton: {fileID: 782233273}
+  SendButton: {fileID: 782233273}
+  _messageContextTMP: {fileID: 998979283}
+  _messageField: {fileID: 2075397881}
   _scrollbar: {fileID: 877667299}
-  _msgInputField: {fileID: 2075397881}
 --- !u!114 &1382154671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3032,7 +3017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneId: 403126482
+  sceneId: 3005715257
   _assetId: 0
   serverOnly: 0
   visible: 0
@@ -3789,21 +3774,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 493836398}
-        m_TargetAssemblyTypeName: ChatSystem.LoginUI, Assembly-CSharp
-        m_MethodName: OnPlayerNameChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1885434804}
-        m_TargetAssemblyTypeName: ChatSystem.ChatNetworkAuth, Assembly-CSharp
-        m_MethodName: SetPlayerName
+        m_TargetAssemblyTypeName: NETWORKING.NET_AUTH, Assembly-CSharp
+        m_MethodName: OnLocalUserNameChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4235,7 +4208,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1885434802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc28e0143740f6f489f73d7914bd04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: bcbf209838599c9458db89d6d3713138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnServerAuthenticated:
@@ -4253,10 +4226,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1885434802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8692c382ca3efd240bb8c20e417003b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bba0bd0b4a44214bbdd4ee6555b9e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 0
+  dontDestroyOnLoad: 1
   runInBackground: 1
   autoStartServerBuild: 1
   autoConnectClientBuild: 0
@@ -4267,7 +4240,7 @@ MonoBehaviour:
   networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 1885434804}
-  playerPrefab: {fileID: 6986179259523909225, guid: 9e0c812032dd3724b9c64240bef036d1, type: 3}
+  playerPrefab: {fileID: 6241254618705368912, guid: e14bdbed796e7444e8a679032b19a42d, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
@@ -4749,7 +4722,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1382154670}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ChatSystem.ChatUI, Assembly-CSharp
         m_MethodName: OnButtonSendClick
         m_Mode: 1
